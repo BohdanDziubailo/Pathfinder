@@ -24,8 +24,10 @@ namespace PathFinderApp.Classes
                 return new Result(false, "Not a polygon");
             else
             {
-
-                return new Result(true, "All right");
+                if (JarvisAlgorithm.FindShell(Points).Count != Points.Count)
+                    return new Result(false, "Polygon is not convex");
+                else
+                    return new Result(true, "All right");
             }
         }
 
